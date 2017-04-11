@@ -129,7 +129,7 @@ correctNotes = extractNotes(0)
 
 output = []
 for f in range(len(files)-1):
-    subject = files[f+1][-18:-16]
+    subject = files[f+1][-13:-11]
     output.append([subject, scoreSubject(f+1)])
 
 with open('clavier.csv', 'w+') as f:
@@ -147,7 +147,7 @@ correctNotes = extractNotes(0)
 
 output = []
 for f in range(len(files)-1):
-    subject = files[f+1][-18:-16]
+    subject = files[f+1][-14:-12]
     output.append([subject, scoreSubject(f+1)])
 
 with open('nocturne.csv', 'w+') as f:
@@ -165,7 +165,7 @@ correctNotes = extractNotes(0)
 
 output = []
 for f in range(len(files)-1):
-    subject = files[f+1][-18:-16]
+    subject = files[f+1][-10:-8]
     output.append([subject, scoreSubject(f+1)])
 
 with open('opus.csv', 'w+') as f:
@@ -183,7 +183,7 @@ correctNotes = extractNotes(0)
 
 output = []
 for f in range(len(files)-1):
-    subject = files[f+1][-18:-16]
+    subject = files[f+1][-12:-10]
     output.append([subject, scoreSubject(f+1)])
 
 with open('sonata.csv', 'w+') as f:
@@ -201,7 +201,7 @@ correctNotes = extractNotes(0)
 
 output = []
 for f in range(len(files)-1):
-    subject = files[f+1][-18:-16]
+    subject = files[f+1][-14:-12]
     output.append([subject, scoreSubject(f+1)])
 
 with open('traumerei.csv', 'w+') as f:

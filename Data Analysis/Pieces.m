@@ -29,7 +29,7 @@ files = dir('./MIDIfiles/Opus/MIDI/*.mid');
 
 for i = 1:length(files)
     nmat = readmidi(strcat('./MIDIfiles/Opus/MIDI/',files(i).name));
-    csvwrite(strcat('./MIDIfiles/Opus/csv/',files(i).name(1:9),'.csv'),nmat)
+    csvwrite(strcat('./MIDIfiles/Opus/csv/',files(i).name(1:13),'.csv'),nmat)
 end
 
 
@@ -47,7 +47,7 @@ files = dir('./MIDIfiles/Traumerei/MIDI/*.mid');
 
 for i = 1:length(files)
     nmat = readmidi(strcat('./MIDIfiles/Traumerei/MIDI/',files(i).name));
-    csvwrite(strcat('./MIDIfiles/Traumerei/csv/',files(i).name(1:19),'.csv'),nmat)
+    csvwrite(strcat('./MIDIfiles/Traumerei/csv/',files(i).name(1:18),'.csv'),nmat)
 end
 
 
