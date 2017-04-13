@@ -110,16 +110,18 @@ for f in range(len(files)):
     #get notes
     notes = extractNotes(f)
     
+    subject = files[f][-12:-10]
+    
     #score scales
     score = getScore(notes)
     errors = sum(s[1] for s in score)
-    scoreOutput.append([f+1,errors])
+    scoreOutput.append([subject,errors])
     
     #score arpeggios
     score = 0
     for a in ['A','E','B','C','D','G']:
         score = score + checkArpeggio(notes,a)
-    arpeggioOutput.append([f+1,score])
+    arpeggioOutput.append([subject,score])
 
 
 # In[12]:
