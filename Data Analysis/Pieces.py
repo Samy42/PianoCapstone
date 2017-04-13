@@ -201,7 +201,7 @@ correctNotes = extractNotes(0)
 
 output = []
 for f in range(len(files)-1):
-    subject = files[f+1][-14:-12]
+    subject = files[f+1][-15:-13]
     output.append([subject, scoreSubject(f+1)])
 
 with open('traumerei.csv', 'w+') as f:
