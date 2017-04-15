@@ -3,14 +3,15 @@
 
 # In[1]:
 
+#import required python modules
 from glob import glob
 import csv
-import re
 import numpy as np
 
 
 # In[2]:
 
+#this function reads in the ith file in the EyeTracking folder
 def readOgamaTsv(i):
     data = []
     with open(files[i]) as f:
@@ -20,28 +21,34 @@ def readOgamaTsv(i):
                 data.append(temp)
     delete = []
     
+    #if the file name ends with "Fixations", then it has the fixations data and this will read it in as such
     if files[i][-13:] == 'Fixations.txt':
+        #flag the unneeded columns for deletion
         todelete = ['ID','SubjectName','TrialSequence',
                     'PosX','PosY','Trial Name','Trial Category',
                     'SlideNr','AOI Group']
+        #identify the locations of the falgged columns
         for j in range(len(data[0])):
             if data[0][j] in todelete:
                 delete.append(j)
         
-
+    #if the file name ends with "Saccades", then it has the fixations data and this will read it in as such
     if files[i][-12:] == 'Saccades.txt':
-        delete = [0,2,4,8,9,10,11,12,13,14,15,16,18]
+        #flag the unneeded columns for deletion
         todelete = ['ID','SubjectName','TrialSequence','CountInTrial',
                     'StartTime','Validity','SubjectCategory','Age','Sex',
                     'Handedness','Comments','Trial Name', 'Trial Category',
                     'SlideNr','Saccade Target AOI Group']
+        #identify the locations of the falgged columns
         for j in range(len(data[0])):
             if data[0][j] in todelete:
                 delete.append(j)
     
+    #delete the unnecessary columns to speed processing later
     for r in range(len(data)):
                 data[r] = np.delete(data[r],delete)
                 data[r]= data[r].tolist()
+                del data[r][-1]
             
     return data
 
@@ -51,6 +58,7 @@ def readOgamaTsv(i):
 def flipRowsCols(data):
     flipped = []
     
+    #data is origionally read in row-by-row, this seperates it into columns.
     for i in range(len(data[0])):
         flipped.append([data[v][i] for v in range(len(data))])
         
@@ -60,6 +68,7 @@ def flipRowsCols(data):
 
 # In[4]:
 
+#all songs are recorded in the same file, this seperates each song
 def splitBySong(data,headers):
     
     
@@ -86,6 +95,9 @@ def splitBySong(data,headers):
 
 # In[5]:
 
+#This function identifies the point when the pianist switches from reading the piece to playing it
+#it does this by finding the largest section of the data with the highest concentration of fixations within the "greenDot"
+#location which is what we asked players to look at before playing the pieces
 def findGreenDot( data ):
     bestMaxAvg = 0
     bestEndIndex = 0
@@ -120,9 +132,10 @@ def findGreenDot( data ):
 
 # In[6]:
 
+#This deletes all data before the subject started playing the piece
 def removeReading(data):
     for s in range(len(data)):
-        if len(data[s]):
+        if len(data[s])and data[s][-2].count('GreenDot'):
             for c in range(len(data[0])):
                 data[s][c] = np.delete(data[s][c],range(findGreenDot(data[s][-2])))
                 data[s][c]= data[s][c].tolist()
@@ -131,15 +144,18 @@ def removeReading(data):
 
 # In[7]:
 
-files = glob("./EyeTracking/*.txt")
+files = glob("./EyeTracking/*.txt") # creates a list of all files in the EyeTracking folder
 
 
 # In[8]:
 
 exceloutput = []
+#print headers for the csv
 exceloutput.append(['Subject ID', 'Song ID', "Playing Time", 
                     'Fixation Count','Fixation Duration','Saccade Length',
                     'Saccade Duration','Path Velocity']) 
+
+#this calculates the eye tracking measures for each person and song
 row = 0
 for person in range(int(len(files)/2)): #starting with one person
     subjectID = files[0+(person*2)][-15:-13]
@@ -195,6 +211,7 @@ for person in range(int(len(files)/2)): #starting with one person
 
 # In[9]:
 
+#print calculated data to csv file
 with open('eyeTrackingData.csv','w+') as f:
     for row in range(len(exceloutput)):
         for col in range(len(exceloutput[0])):

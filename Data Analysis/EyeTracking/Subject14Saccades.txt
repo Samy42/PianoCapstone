@@ -35453,16 +35453,4 @@ Wendy	4	4	8	9826	732	308.3651	0.4212637	-1	Slide4		0	nowhere	nowhere
 Wendy	4	4	9	10761	97	310.8649	3.204793	0	Slide4		0	nowhere	nowhere	
 Wendy	4	4	10	11123	901	658.486	0.7308391	-1	Slide4		0	nowhere	nowhere	
 Wendy	4	4	11	12156	101	548.2732	5.428447	0	Slide4		0	nowhere	nowhere	
-Wendy	4	4	12	12490	300	1201.681	4.005603	-1	Slide4		0	RedDot	nowhere	
-Wendy	5	5	1	3197	67	82.69616	1.234271	0	Slide5		0	nowhere	nowhere	
-Wendy	5	5	2	3464	233	204.8043	0.8789885	-1	Slide5		0	nowhere	nowhere	
-Wendy	5	5	3	3830	3196	67.39069	0.02108595	-1	Slide5		0	nowhere	nowhere	
-Wendy	5	5	4	7294	67	53.86079	0.8038924	0	Slide5		0	nowhere	nowhere	
-Wendy	5	5	5	7661	132	178.5636	1.352755	0	Slide5		0	nowhere	nowhere	
-Wendy	5	5	6	7993	5529	501.101	0.0906314	-1	Slide5		0	nowhere	nowhere	
-Wendy	5	5	7	13954	4531	482.6218	0.1065155	-1	Slide5		0	nowhere	nowhere	
-Wendy	5	5	8	18718	67	25.79028	0.3849295	0	Slide5		0	nowhere	nowhere	
-Wendy	5	5	9	18985	133	53.24823	0.4003626	0	Slide5		0	nowhere	nowhere	
-Wendy	5	5	10	19385	65	747.9478	11.50689	0	Slide5		0	nowhere	nowhere	
-Wendy	5	5	11	19650	35	85.75121	2.450035	0	Slide5		0	nowhere	nowhere	
-Wendy	5	5	12	19984	167	768.5182	4.601905	0	Slide5		0	nowhere	nowhere	
+Wendy	4	4	12	12490	300	1201.681	4.005603	-1	Slide4		0	RedDot	nowhere
